@@ -1,0 +1,56 @@
+<h2>Algorithms in Java</h2>
+<html>
+ <head></head>
+ <body>
+  <p>As you know, algorithms are language-independent, i.e. the same algorithm can be implemented in different languages including Kotlin, Python, C++, and so on. Since we have been learning Java, we will implement algorithms using this language and its features.</p> 
+  <h5>Implementing algorithms in Java</h5> 
+  <p>The Java standard library includes many classic algorithms to solve typical problems that arise when writing programs. These algorithms are written by professionals, optimized, well-tested, and used by millions of programmers around the world. However, it is fine to understand how they work internally. That helps to analyze similar algorithms from different libraries or develop a new algorithm by customizing a well-known one to solve the specific problem. Finally, it is a good point to practice Java!</p> 
+  <p>Algorithms are often represented as static methods. But this is not the only way to implement them in Java. Here are some examples:</p> 
+  <ul> 
+   <li>the class <code class="java">Arrays</code> has algorithms for manipulating arrays such as sorting and searching;</li> 
+   <li>the class <code class="java">Math</code> has a mathematical algorithm for calculating the square root of a number.</li> 
+  </ul> 
+  <p>It is very convenient to take algorithms into separate methods and then call the methods from external code, passing the input values (arguments) and obtaining an output (result).</p> 
+  <p><strong>Note</strong>: an algorithm written in Java can take input values not only from arguments, but also from a file, a database, the Internet, as well as being able to output the result to a console, file and so on.</p> 
+  <h5>Example</h5> 
+  <p>Let's consider a simple algorithm written in Java and then a typical problem arising when implementing algorithms.</p> 
+  <p>The following algorithm finds an index of the maximum number in an array of ints.</p> 
+  <pre><code class="java">public static int findIndexOfMax(int[] numbers) {
+    int index = 0;
+    for (int i = 1; i &lt; numbers.length; i++) {
+        if (numbers[i] &gt; numbers[index]) {
+            index = i;
+        }
+    }
+    return index;
+}</code></pre> 
+  <p>This algorithm is implemented as the static method named <code class="java">findIndexOfMax</code>. It takes an array of ints and returns the index of max. The input array can be either ordered or unordered.</p> 
+  <p>Let's describe the algorithm with words to understand it better:</p> 
+  <ol> 
+   <li>Suppose the number with the index 0 (the first element) is a candidate to be the maximum.</li> 
+   <li>In the loop, we take the following number of the array (from the second to the last one), while the end of the array is not reached and do (3), otherwise, go to (5).</li> 
+   <li>If the taken number is greater than the candidate, save its index (found a new candidate).</li> 
+   <li>Go to the following iteration (2).</li> 
+   <li>Return the index of a found candidate.</li> 
+  </ol> 
+  <p>Let's call the method passing various arrays:</p> 
+  <pre><code class="java">findIndexOfMax(new int[] {1, 5, 3, 2, 3}); // 1
+findIndexOfMax(new int[] {6, 8, 7, 9}); // 3
+findIndexOfMax(new int[] {99}); // 0, the algorithm processes single-element arrays as well</code></pre> 
+  <h5>Considering corner cases</h5> 
+  <p>Corner case is a situation that occurs when an algorithm's input values may lead to incorrect or ambiguous behavior. Considering corner cases is an important part of designing algorithms.</p> 
+  <p>Let's return to our example algorithm. It may seem like it works well. But what if the array contains several numbers that are equal to the maximum? Also, what if the array is empty?</p> 
+  <p>Actually, the presented algorithm finds the first maximum in the array.</p> 
+  <pre><code class="java">findIndexOfMax(new int[] {3, 2, 8, 8, 1}); // 2</code></pre> 
+  <p>Sometimes we may need the first one, and sometimes the last one. It depends on the problem you are solving.</p> 
+  <p>If a passed array is empty, the method returns <code class="java">0</code> as the index of the maximum number.</p> 
+  <pre><code class="java">findIndexOfMax(new int[] {}); // 0</code></pre> 
+  <p>It may be better to return the special value <code class="java">-1</code> to mean that no maximum was found in the array. Let's add the special condition in the method:</p> 
+  <pre><code class="java">if (numbers.length == 0) {
+    return -1;
+}</code></pre> 
+  <p>Similar problems can arise when developing <em>any </em>algorithm. Therefore, when developing algorithms, it's very important to clearly understand the expected result and what the algorithm should do in different cases and boundary conditions. And then we need to explain it to the computer.</p> 
+  <h5>Conclusion</h5> 
+  <p>Being a language-independent thing, algorithms can be realized in Java. In the following topics, we will focus on implementing basic algorithms in Java. The standard library already comprises some popular algorithms written by experts and proven by the time. In order to implement a reliable algorithm, it is not enough to solve the main problem, but also define the behavior for all possible datasets and situations, called corner cases.</p>
+ </body>
+</html>

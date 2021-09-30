@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/Budget Manager/task/build/
+/Budget Manager/task/out/
+/Budget Manager/task/out/production/classes/
+/Topics/Algorithms in Java/Find a value's index/out/
+/Topics/Algorithms in Java/Find a value's index/out/production/classes/
+/Topics/Bubble sort in Java/Descending sorting swaps/out/
+/Topics/Bubble sort in Java/Descending sorting swaps/out/production/classes/
